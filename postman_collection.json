@@ -1,0 +1,53 @@
+{
+  "info": {
+    "name": "ERP Backend (Django) API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth - Obtain Token",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "url": {"raw": "{{base_url}}/api/token/", "host": ["{{base_url}}"], "path": ["api", "token", ""]},
+        "body": {"mode": "raw", "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin123\"\n}"}
+      }
+    },
+    {
+      "name": "Departments - List",
+      "request": {
+        "method": "GET",
+        "header": [{"key": "Authorization", "value": "Bearer {{access_token}}"}],
+        "url": {"raw": "{{base_url}}/api/departments/", "host": ["{{base_url}}"], "path": ["api", "departments", ""]}
+      }
+    },
+    {
+      "name": "Employees - List",
+      "request": {
+        "method": "GET",
+        "header": [{"key": "Authorization", "value": "Bearer {{access_token}}"}],
+        "url": {"raw": "{{base_url}}/api/employees/", "host": ["{{base_url}}"], "path": ["api", "employees", ""]}
+      }
+    },
+    {
+      "name": "Projects - List",
+      "request": {
+        "method": "GET",
+        "header": [{"key": "Authorization", "value": "Bearer {{access_token}}"}],
+        "url": {"raw": "{{base_url}}/api/projects/", "host": ["{{base_url}}"], "path": ["api", "projects", ""]}
+      }
+    },
+    {
+      "name": "Reports - Salary Cost per Department",
+      "request": {
+        "method": "GET",
+        "header": [{"key": "Authorization", "value": "Bearer {{access_token}}"}],
+        "url": {"raw": "{{base_url}}/api/reports/salary_cost_per_department/", "host": ["{{base_url}}"], "path": ["api", "reports", "salary_cost_per_department", ""]}
+      }
+    }
+  ],
+  "variable": [
+    {"key": "base_url", "value": "http://127.0.0.1:8000"},
+    {"key": "access_token", "value": ""}
+  ]
+}
